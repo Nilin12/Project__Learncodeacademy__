@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คอร์สเรียน - LearnCode Academy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+    <style>
+        body {
+            background-color: #fff0e5; 
+            font-family: "Noto Sans Thai", "Thai Sans Lite", Arial, sans-serif;
+        }
+
+        .course-progress-card {
+            border: 2px solid #10162f; 
+            border-radius: 8px;
+            background-color: #ffffff; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .course-progress-card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .course-header {
+            padding: 1rem 1.5rem;
+            background-color: #ffffff; 
+            border-bottom: 2px solid #10162f; 
+        }
+
+        .course-title {
+            font-size: 1.7rem;
+            color: #10162f; 
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-description {
+            font-size: 1rem;
+            color: #10162f;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1.5rem;
+            background-color: #eafdc6; 
+            border-top: 1px dashed #e2e8f0;
+        }
+
+        .meta-item {
+            font-size: 0.875rem;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .meta-item i {
+            font-style: normal; 
+        }
+
+        .view-more-btn {
+            font-size: 0.875rem;
+            color: #ffffff;
+            background-color: #3a10e5; 
+            border: 2px solid #10162f; 
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-left: auto; 
+        }
+
+        .view-more-btn:hover {
+            background-color: #5533ff;
+            color: #ffffff;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+            background-color: #ffffff; 
+        }
+
+        .course-content h6 {
+            font-size: 1.125rem;
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .locked-icon {
+            color: #a0aec0;
+            margin-right: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: #3a10e5;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #5533ff;
+        }
+
+        .btn-link {
+            color: #3a10e5;
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 0;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        .text-muted {
+            color: #000000; 
+        }
+
+        .hideCourse {
+            display: none; 
+        }
+
+        .show-all-btn {
+            background-color: #3a10e5;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            color: #ffffff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 1rem auto;
+            display: block;
+            width: fit-content;
+        }
+
+        .show-all-btn:hover {
+            background-color: #5533ff;
+        }
+        body h1.fw-bold {
+            font-size: 30px;
+        }
+        body h2 {
+            font-size: 26px;
+        }
+        body h3.lead {
+            font-size: 16px;
+        }
+        body h2.lead {
+            font-size: 18px;
+        }
+        p.course-description {
+            font-size: 18px;
+        }
+        button.btn.btn-primary {
+            font-size: 14px;
+        }
+        li.mb-2 { /* Updated rule to target all li.mb-2 elements */
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg" style="background-color: #fff0e5;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html" style="color: #10162f;">LearnCode Academy</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="home.html" style="color: #10162f;">หน้าแรก</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="courses.html" style="color: #10162f;">คอร์สเรียน</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="tutorials.html" style="color: #10162f;">บทเรียน</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="dashboard.html" style="color: #10162f;">แดชบอร์ด</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="leaderboard.html" style="color: #10162f;">อันดับและรางวัล</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="certificates.html" style="color: #10162f;">ใบรับรอง</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="community.html" style="color: #10162f;">ชุมชน</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="contact.html" style="color: #10162f;">ติดต่อ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="signin.html" style="color: #10162f;">เข้าสู่ระบบ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container text-center py-5">
+            <h1 class="fw-bold" style="color: #3a10e5;">คอร์สเรียนของเรา</h1>
+            <h2 class="lead" style="color: #000000;">เราเปิดสอน Python, JavaScript, HTML, CSS และอื่นๆ มาเริ่มต้นเส้นทางการเขียนโค้ดของคุณวันนี้!</h2>
+        </div>
+    </section>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <div class="course-progress-card">
+                    <div class="course-header">
+                        <h5 class="course-title mb-0 text-dark" style="font-size: 26px;">คอร์ส: เรียน Python</h5>
+                        <p class="course-description">เรียนรู้พื้นฐานของภาษาการเขียนโปรแกรมที่เติบโตเร็วและได้รับความนิยมมากที่สุดในโลก ซึ่งใช้โดยวิศวกรซอฟต์แวร์ นักวิเคราะห์ นักวิทยาศาสตร์ข้อมูล และวิศวกรการเรียนรู้ของเครื่อง</p>
+                    </div>
+                    <div class="course-meta">
+                        <span class="meta-item"><i>👶</i> เหมาะสำหรับผู้เริ่มต้น</span>
+                        <span class="meta-item">17 ชั่วโมง</span>
+                    </div>
+                    <button class="view-more-btn" type="button" data-bs-toggle="collapse" data-bs-target="#pythonLessons" aria-expanded="false" aria-controls="pythonLessons">
+                        ดูเพิ่มเติม ▼
+                    </button>
+                    <div class="collapse course-content p-3" id="pythonLessons">
+                        <h6 class="text-dark mb-3">Hello World</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: การเขียนโปรแกรมเริ่มต้น - Hello World</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: ความเข้าใจพื้นฐาน Hello World</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> โปรเจกต์: สร้างตัวอักษรบล็อกด้วย Python</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> โปรเจกต์: ออกแบบใบเสร็จสำหรับโซฟาน่ารัก</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทความ: วิธีใช้สมาชิก Codecademy ให้คุ้มค่า</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทความ: การจัดการอินพุตจากผู้ใช้ใน Python</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: ตัวแปรและประเภทข้อมูลใน Python</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: การใช้งานลูปและเงื่อนไข</li>
+                        </ul>
+                        <div class="mt-3 d-flex flex-column gap-2">
+                            <div class="d-flex gap-2 align-items-center">
+                                <button class="btn btn-primary">เริ่มฝึกฝนโมดูล</button>
+                                <span class="text-muted" style="color: #000000;">0 / 14 คอนเซปต์ที่ฝึกฝนแล้ว</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-link text-primary">ปักหมุดด้านบน ↗</button>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary">ดูหลักสูตร</button>
+                                    <button class="btn btn-primary">เริ่ม</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-4">
+                <div class="course-progress-card">
+                    <div class="course-header">
+                        <h5 class="course-title mb-0 text-dark">คอร์ส: เรียน JavaScript</h5>
+                        <p class="course-description">เรียนรู้ภาษาการเขียนโปรแกรมสำหรับเว็บที่ทรงพลัง ใช้ในการสร้างหน้าเว็บแบบโต้ตอบและแอปพลิเคชันบนเว็บ</p>
+                    </div>
+                    <div class="course-meta">
+                        <span class="meta-item"><i>👶</i> เหมาะสำหรับผู้เริ่มต้น</span>
+                        <span class="meta-item">15 ชั่วโมง</span>
+                    </div>
+                    <button class="view-more-btn" type="button" data-bs-toggle="collapse" data-bs-target="#javascriptLessons" aria-expanded="false" aria-controls="javascriptLessons">
+                        ดูเพิ่มเติม ▼
+                    </button>
+                    <div class="collapse course-content p-3" id="javascriptLessons">
+                        <h6 class="text-dark mb-3">พื้นฐาน JavaScript</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: บทนำเกี่ยวกับ JavaScript</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: ความเข้าใจตัวแปรและฟังก์ชัน</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> โปรเจกต์: สร้างเครื่องคำนวณแบบง่ายด้วย JavaScript</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: การจัดการ DOM ใน JavaScript</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: การใช้เหตุการณ์ (Events) ใน JavaScript</li>
+                        </ul>
+                        <div class="mt-3 d-flex flex-column gap-2">
+                            <div class="d-flex gap-2 align-items-center">
+                                <button class="btn btn-primary">เริ่มฝึกฝนโมดูล</button>
+                                <span class="text-muted" style="color: #000000;">0 / 14 คอนเซปต์ที่ฝึกฝนแล้ว</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-link text-primary">ปักหมุดด้านบน ↗</button>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary">ดูหลักสูตร</button>
+                                    <button class="btn btn-primary">เริ่ม</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-4">
+                <div class="course-progress-card">
+                    <div class="course-header">
+                        <h5 class="course-title mb-0 text-dark">คอร์ส: เรียน C: การแนะนำ</h5>
+                        <p class="course-description">เรียนรู้ภาษาการเขียนโปรแกรม C ซึ่งเป็นพื้นฐานสำหรับการพัฒนาซอฟต์แวร์ระดับระบบและแอปพลิเคชัน</p>
+                    </div>
+                    <div class="course-meta">
+                        <span class="meta-item"><i>👶</i> เหมาะสำหรับผู้เริ่มต้น</span>
+                        <span class="meta-item">18 ชั่วโมง</span>
+                    </div>
+                    <button class="view-more-btn" type="button" data-bs-toggle="collapse" data-bs-target="#cLessons" aria-expanded="false" aria-controls="cLessons">
+                        ดูเพิ่มเติม ▼
+                    </button>
+                    <div class="collapse course-content p-3" id="cLessons">
+                        <h6 class="text-dark mb-3">พื้นฐาน C</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: บทนำเกี่ยวกับภาษา C</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: ความเข้าใจพอยเตอร์และอาเรย์</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> โปรเจกต์: สร้างโปรแกรมคำนวณตัวเลข</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: ฟังก์ชันและโครงสร้างใน C</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: การจัดการหน่วยความจำใน C</li>
+                        </ul>
+                        <div class="mt-3 d-flex flex-column gap-2">
+                            <div class="d-flex gap-2 align-items-center">
+                                <button class="btn btn-primary">เริ่มฝึกฝนโมดูล</button>
+                                <span class="text-muted" style="color: #000000;">0 / 14 คอนเซปต์ที่ฝึกฝนแล้ว</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-link text-primary">ปักหมุดด้านบน ↗</button>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary">ดูหลักสูตร</button>
+                                    <button class="btn btn-primary">เริ่ม</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-4 hideCourse">
+                <div class="course-progress-card">
+                    <div class="course-header">
+                        <h5 class="course-title mb-0 text-dark">คอร์ส: พื้นฐานปัญญาประดิษฐ์ (Artificial Intelligence Fundamentals)</h5>
+                        <p class="course-description">สำรวจหลักการพื้นฐานของปัญญาประดิษฐ์ รวมถึงการเรียนรู้ของเครื่อง ระบบผู้เชี่ยวชาญ และการประมวลผลภาษาธรรมชาติ</p>
+                    </div>
+                    <div class="course-meta">
+                        <span class="meta-item"><i>👶</i> เหมาะสำหรับผู้เริ่มต้น</span>
+                        <span class="meta-item">20 ชั่วโมง</span>
+                    </div>
+                    <button class="view-more-btn" type="button" data-bs-toggle="collapse" data-bs-target="#aiLessons" aria-expanded="false" aria-controls="aiLessons">
+                        ดูเพิ่มเติม ▼
+                    </button>
+                    <div class="collapse course-content p-3" id="aiLessons">
+                        <h6 class="text-dark mb-3">พื้นฐาน AI</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: บทนำเกี่ยวกับปัญญาประดิษฐ์</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: หลักการเรียนรู้ของเครื่องและอัลกอริทึม</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> โปรเจกต์: สร้างโมเดลเนอรัลเน็ตเวิร์กง่ายๆ</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: การประมวลผลภาษาธธรรมชาติ (NLP)</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: การวิเคราะห์ข้อมูลด้วย AI</li>
+                        </ul>
+                        <div class="mt-3 d-flex flex-column gap-2">
+                            <div class="d-flex gap-2 align-items-center">
+                                <button class="btn btn-primary">เริ่มฝึกฝนโมดูล</button>
+                                <span class="text-muted" style="color: #000000;">0 / 14 คอนเซปต์ที่ฝึกฝนแล้ว</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-link text-primary">ปักหมุดด้านบน ↗</button>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary">ดูหลักสูตร</button>
+                                    <button class="btn btn-primary">เริ่ม</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-4 hideCourse">
+                <div class="course-progress-card">
+                    <div class="course-header">
+                        <h5 class="course-title mb-0 text-dark">คอร์ส: การพัฒนาแอปพลิเคชันมือถือ</h5>
+                        <p class="course-description">เรียนรู้การสร้างแอปสำหรับ iOS และ Android ด้วย Swift, Kotlin และ Flutter</p>
+                    </div>
+                    <div class="course-meta">
+                        <span class="meta-item"><i>👶</i> เหมาะสำหรับผู้เริ่มต้น</span>
+                        <span class="meta-item">19 ชั่วโมง</span>
+                    </div>
+                    <button class="view-more-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mobileAppLessons" aria-expanded="false" aria-controls="mobileAppLessons">
+                        ดูเพิ่มเติม ▼
+                    </button>
+                    <div class="collapse course-content p-3" id="mobileAppLessons">
+                        <h6 class="text-dark mb-3">พื้นฐานการพัฒนาแอปมือถือ</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: บทนำเกี่ยวกับการพัฒนาแอปมือถือ</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: พื้นฐาน Swift และ Kotlin สำหรับแอป</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> โปรเจกต์: สร้างแอปโต้ตอบง่ายๆ สำหรับ iOS</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: การออกแบบ UI/UX สำหรับแอปมือถือ</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: การจัดการ API ในแอปมือถือ</li>
+                        </ul>
+                        <div class="mt-3 d-flex flex-column gap-2">
+                            <div class="d-flex gap-2 align-items-center">
+                                <button class="btn btn-primary">เริ่มฝึกฝนโมดูล</button>
+                                <span class="text-muted" style="color: #000000;">0 / 14 คอนเซปต์ที่ฝึกฝนแล้ว</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-link text-primary">ปักหมุดด้านบน ↗</button>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary">ดูหลักสูตร</button>
+                                    <button class="btn btn-primary">เริ่ม</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-4 hideCourse">
+                <div class="course-progress-card">
+                    <div class="course-header">
+                        <h5 class="course-title mb-0 text-dark">คอร์ส: การจัดการฐานข้อมูล</h5>
+                        <p class="course-description">ทำความเข้าใจ SQL, NoSQL และเทคนิคการออกแบบฐานข้อมูลสำหรับแอปพลิเคชันสมัยใหม่</p>
+                    </div>
+                    <div class="course-meta">
+                        <span class="meta-item"><i>👶</i> เหมาะสำหรับผู้เริ่มต้น</span>
+                        <span class="meta-item">16 ชั่วโมง</span>
+                    </div>
+                    <button class="view-more-btn" type="button" data-bs-toggle="collapse" data-bs-target="#databaseLessons" aria-expanded="false" aria-controls="databaseLessons">
+                        ดูเพิ่มเติม ▼
+                    </button>
+                    <div class="collapse course-content p-3" id="databaseLessons">
+                        <h6 class="text-dark mb-3">พื้นฐานฐานข้อมูล</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: หลักการพื้นฐาน SQL และการใช้งาน</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: ความเข้าใจ NoSQL และ MongoDB</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> โปรเจกต์: ออกแบบฐานข้อมูลสำหรับเว็บแอป</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: การจัดการธุรกรรมในฐานข้อมูล</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: การปรับปรุงประสิทธิภาพฐานข้อมูล</li>
+                        </ul>
+                        <div class="mt-3 d-flex flex-column gap-2">
+                            <div class="d-flex gap-2 align-items-center">
+                                <button class="btn btn-primary">เริ่มฝึกฝนโมดูล</button>
+                                <span class="text-muted" style="color: #000000;">0 / 14 คอนเซปต์ที่ฝึกฝนแล้ว</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-link text-primary">ปักหมุดด้านบน ↗</button>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary">ดูหลักสูตร</button>
+                                    <button class="btn btn-primary">เริ่ม</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-4 hideCourse">
+                <div class="course-progress-card">
+                    <div class="course-header">
+                        <h5 class="course-title mb-0 text-dark">คอร์ส: พพื้นฐาน DevOps</h5>
+                        <p class="course-description">เรียนรู้การจัดการวงจรพัฒนาซอฟต์แวร์, CI/CD และเครื่องมือเช่น Docker, Kubernetes</p>
+                    </div>
+                    <div class="course-meta">
+                        <span class="meta-item"><i>👶</i> เหมาะสำหรับผู้เริ่มต้น</span>
+                        <span class="meta-item">22 ชั่วโมง</span>
+                    </div>
+                    <button class="view-more-btn" type="button" data-bs-toggle="collapse" data-bs-target="#devopsLessons" aria-expanded="false" aria-controls="devopsLessons">
+                        ดูเพิ่มเติม ▼
+                    </button>
+                    <div class="collapse course-content p-3" id="devopsLessons">
+                        <h6 class="text-dark mb-3">พื้นฐาน DevOps</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: บทนำเกี่ยวกับ DevOps และวงจรพัฒนา</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: ความเข้าใจเครื่องมือ CI/CD เช่น Jenkins</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> โปรเจกต์: ตั้งค่าและจัดการ Docker Container</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: การใช้ Kubernetes สำหรับการจัดการคลาวด์</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: การตรวจสอบและรักษาความปลอดภัยใน DevOps</li>
+                        </ul>
+                        <div class="mt-3 d-flex flex-column gap-2">
+                            <div class="d-flex gap-2 align-items-center">
+                                <button class="btn btn-primary">เริ่มฝึกฝนโมดูล</button>
+                                <span class="text-muted" style="color: #000000;">0 / 14 คอนเซปต์ที่ฝึกฝนแล้ว</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-link text-primary">ปักหมุดด้านบน ↗</button>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary">ดูหลักสูตร</button>
+                                    <button class="btn btn-primary">เริ่ม</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-4 hideCourse">
+                <div class="course-progress-card">
+                    <div class="course-header">
+                        <h5 class="course-title mb-0 text-dark">คอร์ส: การพัฒนาเกมด้วย Unity</h5>
+                        <p class="course-description">สร้างเกม 2D และ 3D โดยใช้ Unity และ C#, พร้อมเรียนรู้การออกแบบและการโปรแกรม</p>
+                    </div>
+                    <div class="course-meta">
+                        <span class="meta-item"><i>👶</i> เหมาะสำหรับผู้เริ่มต้น</span>
+                        <span class="meta-item">25 ชั่วโมง</span>
+                    </div>
+                    <button class="view-more-btn" type="button" data-bs-toggle="collapse" data-bs-target="#gameDevLessons" aria-expanded="false" aria-controls="gameDevLessons">
+                        ดูเพิ่มเติม ▼
+                    </button>
+                    <div class="collapse course-content p-3" id="gameDevLessons">
+                        <h6 class="text-dark mb-3">พื้นฐานการพัฒนาเกม</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: บทนำเกี่ยวกับ Unity และเครื่องมือ</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: การใช้งาน C# ในโปรแกรมพัฒนาเกม</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> โปรเจกต์: สร้างเกม 2D แบบโต้ตอบ</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: การออกแบบกราฟิกและแอนิเมชันใน Unity</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: การจัดการฟิสิกส์ในเกม</li>
+                        </ul>
+                        <div class="mt-3 d-flex flex-column gap-2">
+                            <div class="d-flex gap-2 align-items-center">
+                                <button class="btn btn-primary">เริ่มฝึกฝนโมดูล</button>
+                                <span class="text-muted" style="color: #000000;">0 / 14 คอนเซปต์ที่ฝึกฝนแล้ว</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-link text-primary">ปักหมุดด้านบน ↗</button>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary">ดูหลักสูตร</button>
+                                    <button class="btn btn-primary">เริ่ม</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-4 hideCourse">
+                <div class="course-progress-card">
+                    <div class="course-header">
+                        <h5 class="course-title mb-0 text-dark">คอร์ส: หลักการออกแบบเว็บ</h5>
+                        <p class="course-description">เรียนรู้การออกแบบเว็บที่สวยงามและใช้งานง่ายด้วย UX/UI, Figma และหลักการการออกแบบสมัยใหม่</p>
+                    </div>
+                    <div class="course-meta">
+                        <span class="meta-item"><i>👶</i> เหมาะสำหรับผู้เริ่มต้น</span>
+                        <span class="meta-item">14 ชั่วโมง</span>
+                    </div>
+                    <button class="view-more-btn" type="button" data-bs-toggle="collapse" data-bs-target="#webDesignLessons" aria-expanded="false" aria-controls="webDesignLessons">
+                        ดูเพิ่มเติม ▼
+                    </button>
+                    <div class="collapse course-content p-3" id="webDesignLessons">
+                        <h6 class="text-dark mb-3">พื้นฐานการออกแบบเว็บ</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: หลักการ UX/UI สำหรับเว็บ</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: การใช้งานเครื่องมือ Figma</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> โปรเจกต์: ออกแบบแม่แบบเว็บไซต์แบบโต้ตอบ</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> บทเรียน: การใช้สีและเลย์เอาต์ในเว็บดีไซน์</li>
+                            <li class="mb-2"><span class="locked-icon text-secondary">🔒</span> ควิซ: การทดสอบความใช้งานง่ายของเว็บ</li>
+                        </ul>
+                        <div class="mt-3 d-flex flex-column gap-2">
+                            <div class="d-flex gap-2 align-items-center">
+                                <button class="btn btn-primary">เริ่มฝึกฝนโมดูล</button>
+                                <span class="text-muted" style="color: #000000;">0 / 14 คอนเซปต์ที่ฝึกฝนแล้ว</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-link text-primary">ปักหมุดด้านบน ↗</button>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary">ดูหลักสูตร</button>
+                                    <button class="btn btn-primary">เริ่ม</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <button class="show-all-btn" id="showAllBtn">แสดงเพิ่มเติม</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 border-bottom border-md-0 border-end">
+                    <h5><b>วิชา</b></h5>
+                    <ul class="list-unstyled">
+                        <li style="color: #10162f;">AI</li>
+                        <li style="color: #10162f;">การคำนวณบนคลาวด์</li>
+                        <li style="color: #10162f;">พื้นฐานโค้ด</li>
+                        <li style="color: #10162f;">วิทยาการคอมพิวเตอร์</li>
+                        <li style="color: #10162f;">ความปลอดภัยทางไซเบอร์</li>
+                        <li style="color: #10162f;">การวิเคราะห์ข้อมูล</li>
+                        <li style="color: #10162f;">วิทยาศาสตร์ข้อมูล</li>
+                        <li style="color: #10162f;">การแสดงผลข้อมูล</li>
+                        <li style="color: #10162f;">เครื่องมือสำหรับนักพัฒนา</li>
+                        <li style="color: #10162f;">DevOps</li>
+                        <li style="color: #10162f;">การพัฒนาเกม</li>
+                        <li style="color: #10162f;">IT</li>
+                        <li style="color: #10162f;">การเรียนรู้ของเครื่อง</li>
+                        <li style="color: #10162f;">คณิตศาสตร์</li>
+                        <li style="color: #10162f;">การพัฒนาแอปมือถือ</li>
+                        <li style="color: #10162f;">การออกแบบเว็บ</li>
+                        <li style="color: #10162f;">การพัฒนาเว็บ</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 border-bottom border-md-0 border-end">
+                    <h5><b>ภาษา</b></h5>
+                    <ul class="list-unstyled">
+                        <li style="color: #10162f;">Bash</li>
+                        <li style="color: #10162f;">C</li>
+                        <li style="color: #10162f;">C++</li>
+                        <li style="color: #10162f;">C#</li>
+                        <li style="color: #10162f;">Go</li>
+                        <li style="color: #10162f;">HTML & CSS</li>
+                        <li style="color: #10162f;">Java</li>
+                        <li style="color: #10162f;">JavaScript</li>
+                        <li style="color: #10162f;">Kotlin</li>
+                        <li style="color: #10162f;">PHP</li>
+                        <li style="color: #10162f;">Python</li>
+                        <li style="color: #10162f;">R</li>
+                        <li style="color: #10162f;">Ruby</li>
+                        <li style="color: #10162f;">SQL</li>
+                        <li style="color: #10162f;">Swift</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 border-bottom border-md-0">
+                    <h5><b>การสร้างอาชีพ</b></h5>
+                    <ul class="list-unstyled">
+                        <li style="color: #10162f;">เส้นทางอาชีพ</li>
+                        <li style="color: #10162f;">ศูนย์อาชีพ</li>
+                        <li style="color: #10162f;">การเตรียมสัมภาษณ์</li>
+                        <li style="color: #10162f;">ใบรับรองวิชาชีพ</li>
+                        <li style="color: #10162f;">เปรียบเทียบกับบูทแคมป์</li>
+                        <li style="color: #10162f;">แคตาล็อกทั้งหมด</li>
+                        <li style="color: #10162f;">เนื้อหาเบต้า</li>
+                        <li style="color: #10162f;">แผนที่เส้นทาง</li>
+                    </ul>
+                    <h5><b>ติดต่อ</b></h5>
+                    <div>
+                        <img src="images/Instagram_icon.png.webp" alt="Instagram" width="30">
+                        <img src="images/2021_Facebook_icon.svg.png" alt="Facebook" width="30">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p style="color: #10162f;">นโยบายความเป็นส่วนตัว | นโยบายคุกกี้ | ไม่อนุญาตให้ขายข้อมูลส่วนบุคคลของฉัน | เงื่อนไข</p>
+                <p style="color: #10162f;">© 2024 LearnCode Academy | สงวนลิขสิทธิ์</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            $("#showAllBtn").on("click", function() {
+                var $this = $(this);
+                var linkText = $this.text().trim();
+
+                if (linkText === "แสดงเพิ่มเติม") {
+                    linkText = "แสดงน้อยลง";
+                    $(".hideCourse").removeClass("hideCourse");
+                } else {
+                    linkText = "แสดงเพิ่มเติม";
+                    $(".col-md-12:gt(2)").addClass("hideCourse"); 
+                }
+
+                $this.text(linkText);
+            });
+            $(".view-more-btn").on("click", function() {
+                var $this = $(this);
+                var targetId = $this.attr("data-bs-target");
+                var $content = $(targetId);
+                var linkText = $this.text().trim();
+
+                if (linkText === "ดูเพิ่มเติม ▼") {
+                    linkText = "ดูน้อยลง ▲";
+                    $content.removeClass("collapse");
+                } else {
+                    linkText = "ดูเพิ่มเติม ▼";
+                    $content.addClass("collapse");
+                }
+
+                $this.text(linkText);
+                $this.attr("aria-expanded", $this.attr("aria-expanded") === "false" ? "true" : "false");
+            });
+        });
+    </script>
+</html>

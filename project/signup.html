@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สมัครสมาชิก - LearnCode Academy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #fff0e5;
+            font-family: "Noto Sans Thai", "Thai Sans Lite", Arial, sans-serif;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .form-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #10162f;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #10162f;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #ffffff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #3a10e5;
+            color: #ffffff;
+            border: 1px solid #3a10e5;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: #fff0e5;
+            border-color: #fff0e5;
+            transform: translateY(-2px);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .login-link a {
+            color: #eafdc6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+            color: #eafdc6;
+        }
+
+        .hero {
+            padding: 3rem 2rem;
+            background: #fffae5;
+            color: #10162f;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #333;
+        }
+        body h1.fw-bold{
+    font-size: 30px;
+}
+
+body p.lead {
+    font-size: 18px;
+}
+button.btn.btn-primary{
+    font-size: 14px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg" style="background-color: #fff0e5;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html" style="color: #10162f;">LearnCode Academy</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="home.html" style="color: #10162f;">หน้าแรก</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="courses.html" style="color: #10162f;">คอร์สเรียน</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="tutorials.html" style="color: #10162f;">บทเรียน</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="dashboard.html" style="color: #10162f;">แดชบอร์ด</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="leaderboard.html" style="color: #10162f;">อันดับและรางวัล</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="certificates.html" style="color: #10162f;">ใบรับรอง</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="community.html" style="color: #10162f;">ชุมชน</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="contact.html" style="color: #10162f;">ติดต่อ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="signin.html" style="color: #10162f;">เข้าสู่ระบบ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 class="fw-bold" style="color: #3a10e5;">เข้าร่วมการปฏิวัติการเขียนโค้ด 🚀</h1
+        <p class="lead" style="color: #10162f;">พร้อมปลดล็อกศักยภาพของคุณหรือยัง? มาเป็นส่วนหนึ่งของชุมชนการเรียนรู้ของเรา และเริ่มต้นเส้นทางสู่การเชี่ยวชาญทักษะที่สำคัญในอนาคต!</p>
+
+        <p class="lead" style="color: #10162f;">เริ่มเรียนรู้ สร้างโปรเจ็กต์ และเชื่อมต่อกับผู้เชี่ยวชาญ โอกาสไม่มีที่สิ้นสุด ก้าวแรกของคุณเริ่มต้นที่นี่</p>
+    </section>
+    <div class="form-container">
+        <form action="/action_page.php" method="post">
+            <label for="name" style="font-size: 18px;">ชื่อ-นามสกุล</label>
+            <input type="text" id="name" name="name" placeholder="กรอกชื่อ-นามสกุลของคุณ" required>
+
+            <label for="email">ที่อยู่อีเมล</label>
+            <input type="email" id="email" name="email" placeholder="กรอกอีเมลของคุณ" required>
+
+            <label for="password">รหัสผ่าน</label>
+            <input type="password" id="password" name="password" placeholder="สร้างรหัสผ่าน" required>
+
+            <label for="confirm-password">ยืนยันรหัสผ่าน</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="ยืนยันรหัสผ่านของคุณ" required>
+
+            <button type="submit" style="font-size: 14px;">สมัครสมาชิก</button>
+        </form>
+        <div class="login-link">
+            <p style="color: #10162f; font-size: 16px;">มีบัญชีอยู่แล้ว? <a href="signin.html" style="color: #3a10e5; font-size: 16px;">เข้าสู่ระบบที่นี่</a></p>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 border-bottom border-md-0 border-end">
+                    <h5><b>วิชา</b></h5>
+                    <ul class="list-unstyled">
+                        <li style="color: #10162f;">AI</li>
+                        <li style="color: #10162f;">การคำนวณบนคลาวด์</li>
+                        <li style="color: #10162f;">พื้นฐานโค้ด</li>
+                        <li style="color: #10162f;">วิทยาการคอมพิวเตอร์</li>
+                        <li style="color: #10162f;">ความปลอดภัยทางไซเบอร์</li>
+                        <li style="color: #10162f;">การวิเคราะห์ข้อมูล</li>
+                        <li style="color: #10162f;">วิทยาศาสตร์ข้อมูล</li>
+                        <li style="color: #10162f;">การแสดงผลข้อมูล</li>
+                        <li style="color: #10162f;">เครื่องมือสำหรับนักพัฒนา</li>
+                        <li style="color: #10162f;">DevOps</li>
+                        <li style="color: #10162f;">การพัฒนาเกม</li>
+                        <li style="color: #10162f;">IT</li>
+                        <li style="color: #10162f;">การเรียนรู้ของเครื่อง</li>
+                        <li style="color: #10162f;">คณิตศาสตร์</li>
+                        <li style="color: #10162f;">การพัฒนาแอปมือถือ</li>
+                        <li style="color: #10162f;">การออกแบบเว็บ</li>
+                        <li style="color: #10162f;">การพัฒนาเว็บ</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 border-bottom border-md-0 border-end">
+                    <h5><b>ภาษา</b></h5>
+                    <ul class="list-unstyled">
+                        <li style="color: #10162f;">Bash</li>
+                        <li style="color: #10162f;">C</li>
+                        <li style="color: #10162f;">C++</li>
+                        <li style="color: #10162f;">C#</li>
+                        <li style="color: #10162f;">Go</li>
+                        <li style="color: #10162f;">HTML & CSS</li>
+                        <li style="color: #10162f;">Java</li>
+                        <li style="color: #10162f;">JavaScript</li>
+                        <li style="color: #10162f;">Kotlin</li>
+                        <li style="color: #10162f;">PHP</li>
+                        <li style="color: #10162f;">Python</li>
+                        <li style="color: #10162f;">R</li>
+                        <li style="color: #10162f;">Ruby</li>
+                        <li style="color: #10162f;">SQL</li>
+                        <li style="color: #10162f;">Swift</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 border-bottom border-md-0">
+                    <h5><b>การสร้างอาชีพ</b></h5>
+                    <ul class="list-unstyled">
+                        <li style="color: #10162f;">เส้นทางอาชีพ</li>
+                        <li style="color: #10162f;">ศูนย์อาชีพ</li>
+                        <li style="color: #10162f;">การเตรียมสัมภาษณ์</li>
+                        <li style="color: #10162f;">ใบรับรองวิชาชีพ</li>
+                        <li style="color: #10162f;">เปรียบเทียบกับบูทแคมป์</li>
+                        <li style="color: #10162f;">แคตาล็อกทั้งหมด</li>
+                        <li style="color: #10162f;">เนื้อหาเบต้า</li>
+                        <li style="color: #10162f;">แผนที่เส้นทาง</li>
+                    </ul>
+                    <h5><b>ติดต่อ</b></h5>
+                    <div>
+                        <img src="images/Instagram_icon.png.webp" alt="Instagram" width="30">
+                        <img src="images/2021_Facebook_icon.svg.png" alt="Facebook" width="30">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p style="color: #10162f;">นโยบายความเป็นส่วนตัว | นโยบายคุกกี้ | ไม่อนุญาตให้ขายข้อมูลส่วนบุคคลของฉัน | เงื่อนไข</p>
+                <p style="color: #10162f;">© 2024 LearnCode Academy | สงวนลิขสิทธิ์</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

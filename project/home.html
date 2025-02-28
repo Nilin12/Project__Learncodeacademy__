@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>LearnCode Academy</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .carousel img {
+            height: 650px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .carousel-caption {
+            background: #ffffff; 
+            padding: 10px;
+            border-radius: 5px;
+            color: #3a10e5; 
+        }
+        body {
+            background-color: #fff0e5; 
+        }
+
+body h1.fw-bold {
+    font-size: 30px;
+}
+
+body p.lead{
+    font-size: 18px;
+}
+a.action-button{
+    font-size: 16px;
+}
+body h5{
+    font-size: 24px;
+}
+h2.section-title{
+    font-size: 26px;
+    text-align: center;
+}
+.testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 15px;
+        }
+        .testimonial-card {
+            background-color: #fff;
+            border: 1px solid #10162f;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .testimonial-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #10162f;
+            margin-bottom: 1rem;
+        }
+        .testimonial-card p {
+            color: #333;
+            font-size: 1rem;
+        }
+
+      
+        @media (max-width: 768px) {
+            .carousel img {
+                height: 300px; 
+            }
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg" style="background-color: #fff0e5;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html" style="color: #10162f;">LearnCode Academy</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="home.html" style="color: #10162f;">หน้าแรก</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="courses.html" style="color: #10162f;">คอร์สเรียน</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="tutorials.html" style="color: #10162f;">บทเรียน</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="dashboard.html" style="color: #10162f;">แดชบอร์ด</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="leaderboard.html" style="color: #10162f;">อันดับและรางวัล</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="certificates.html" style="color: #10162f;">ใบรับรอง</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="community.html" style="color: #10162f;">ชุมชน</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="contact.html" style="color: #10162f;">ติดต่อ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="signin.html" style="color: #10162f;">เข้าสู่ระบบ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1 class="fw-bold" style="color: #3a10e5;" >ยินดีต้อนรับสู่ LearnCode Academy – ก้าวสู่ความเป็นเลิศทางเทคโนโลยี 🚀</h1>
+        <p class="lead">พร้อมหรือยังที่จะเปิดโลกการเขียนโค้ดและเปลี่ยนอนาคตของคุณ? ที่ LearnCode Academy เรามีคอร์สเรียนที่สอนโดยผู้เชี่ยวชาญ โปรเจกต์จริง และชุมชนที่พร้อมสนับสนุนคุณในการเรียนรู้ด้านโปรแกรมมิ่ง พัฒนาเว็บ AI ความปลอดภัยไซเบอร์ และอื่น ๆ อีกมากมาย!</p>
+    </section>
+
+    <div id="courseCarousel" class="carousel slide container my-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="course1.html">
+                    <img src="images/1646-GDU-Learn_to_Code_Blog_Header_.width-1300.png" class="d-block w-100" alt="คอร์ส 1">
+                </a>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>ทำไมต้องเรียนกับเรา?</h5>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href="course2.html">
+                    <img src="images/1705567341575.png" class="d-block w-100" alt="คอร์ส 2">
+                </a>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>คอร์สตั้งแต่ระดับเริ่มต้นจนถึงขั้นสูง เหมาะกับทุกระดับทักษะ</h5>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href="course3.html">
+                    <img src="images/top-10-websites-to-learn-programming-in-2020.webp" class="d-block w-100" alt="คอร์ส 3">
+                </a>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>โปรเจกต์จริงที่ช่วยให้คุณสร้างพอร์ตโฟลิโอ</h5>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href="course4.html">
+                    <img src="images/learn-coding-online-for-free.webp" class="d-block w-100" alt="คอร์ส 4">
+                </a>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>เรียนได้ตามจังหวะของคุณด้วยบทเรียนเชิงโต้ตอบ</h5>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href="course5.html">
+                    <img src="images/feature_coding.png" class="d-block w-100" alt="คอร์ส 5">
+                </a>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>🔥 เริ่มเรียนรู้วันนี้และสร้างอนาคตในสายเทคโนโลยี! 🚀</h5>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#courseCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#courseCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+    <section class="testimonials container">
+        <h2 class="section-title">ความคิดเห็นจากผู้เรียน</h2> 
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <h3 style="font-size: 18px;">นฤมล เรียนดี</h3>
+                <p>"LearnCode Academy ช่วยให้ฉันเปลี่ยนสายงานไปเป็นนักพัฒนาเว็บได้สำเร็จภายใน 6 เดือน!"</p>
+            </div>
+            <div class="testimonial-card">
+                <h3 style="font-size: 18px;">สมชาย รักเรียน</h3>
+                <p>"บทเรียนเชิงโต้ตอบและโปรเจกต์จริงทำให้ฉันมั่นใจในการเขียนโค้ดมากขึ้น"</p>
+            </div>
+            <div class="testimonial-card">
+                <h3 style="font-size: 18px;">ธนโชค ไอที</h3>
+                <p>"คำแนะนำจากผู้เชี่ยวชาญที่นี่ช่วยให้ฉันได้งานในฝันที่บริษัทเทคโนโลยีชั้นนำ"</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 border-bottom border-md-0 border-end">
+                    <h5><b>วิชา</b></h5>
+                    <ul class="list-unstyled">
+                        <li>AI</li>
+                        <li>การคำนวณบนคลาวด์</li>
+                        <li>พื้นฐานโค้ด</li>
+                        <li>วิทยาการคอมพิวเตอร์</li>
+                        <li>ความปลอดภัยทางไซเบอร์</li>
+                        <li>การวิเคราะห์ข้อมูล</li>
+                        <li>วิทยาศาสตร์ข้อมูล</li>
+                        <li>การแสดงผลข้อมูล</li>
+                        <li>เครื่องมือสำหรับนักพัฒนา</li>
+                        <li>DevOps</li>
+                        <li>การพัฒนาเกม</li>
+                        <li>IT</li>
+                        <li>การเรียนรู้ของเครื่อง</li>
+                        <li>คณิตศาสตร์</li>
+                        <li>การพัฒนาแอปมือถือ</li>
+                        <li>การออกแบบเว็บ</li>
+                        <li>การพัฒนาเว็บ</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 border-bottom border-md-0 border-end">
+                    <h5><b>ภาษา</b></h5>
+                    <ul class="list-unstyled">
+                        <li>Bash</li>
+                        <li>C</li>
+                        <li>C++</li>
+                        <li>C#</li>
+                        <li>Go</li>
+                        <li>HTML & CSS</li>
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                        <li>Kotlin</li>
+                        <li>PHP</li>
+                        <li>Python</li>
+                        <li>R</li>
+                        <li>Ruby</li>
+                        <li>SQL</li>
+                        <li>Swift</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 border-bottom border-md-0">
+                    <h5><b>การสร้างอาชีพ</b></h5>
+                    <ul class="list-unstyled">
+                        <li>เส้นทางอาชีพ</li>
+                        <li>ศูนย์อาชีพ</li>
+                        <li>การเตรียมสัมภาษณ์</li>
+                        <li>ใบรับรองวิชาชีพ</li>
+                        <li>เปรียบเทียบกับบูทแคมป์</li>
+                        <li>แคตาล็อกทั้งหมด</li>
+                        <li>เนื้อหาเบต้า</li>
+                        <li>แผนที่เส้นทาง</li>
+                    </ul>
+                    <h5><b>ติดต่อ</b></h5>
+                    <div>
+                        <img src="images/Instagram_icon.png.webp" alt="Instagram" width="30">
+                        <img src="images/2021_Facebook_icon.svg.png" alt="Facebook" width="30">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>นโยบายความเป็นส่วนตัว | นโยบายคุกกี้ | ไม่อนุญาตให้ขายข้อมูลส่วนบุคคลของฉัน | เงื่อนไข</p>
+                <p>© 2024 LearnCode Academy | สงวนลิขสิทธิ์</p>
+            </div>
+        </div>
+    </footer>
+</html>

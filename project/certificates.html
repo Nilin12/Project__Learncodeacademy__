@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ใบรับรอง - LearnCode Academy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <style>
+        body {
+            background-color: #fff0e5;
+            font-family: "Noto Sans Thai", "Thai Sans Lite", Arial, sans-serif;
+        }
+
+        .btn-gold {
+            background: #3a10e5;
+            color: #ffffff;
+            font-weight: bold;
+            border: 2px solid #3a10e5;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .btn-gold:hover {
+            background: #5533ff;
+            border-color: #5533ff;
+        }
+
+        .certificate-card {
+            background: #ffffff;
+            padding: 15px;
+            border: 1px solid #10162f;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .certificate-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .certificate-card .card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .certificate-card .card-image {
+            margin-bottom: 15px;
+        }
+        .certificate-card .card-image img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .certificate-card .card-details {
+            text-align: left;
+            width: 100%;
+        }
+
+        .certificate-card h3 {
+            color: #10162f;
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+        }
+
+        .certificate-card p {
+            color: #10162f;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .certificate-tag {
+            background: #eafdc6;
+            color: #10162f;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .hideCert {
+            display: none;
+        }
+
+        .show-all-btn {
+            background-color: #3a10e5;
+            border: 2px solid #3a10e5;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            color: #ffffff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            margin: 1rem auto;
+            display: block;
+            width: fit-content;
+        }
+        .show-all-btn:hover {
+            background-color: #5533ff;
+            border-color: #5533ff;
+        }
+
+        @media (min-width: 768px) {
+            .certificate-row {
+                display: flex;
+                justify-content: space-between;
+            }
+            .certificate-row .col-md-4 {
+                flex: 0 0 23%;
+                max-width: 23%;
+            }
+        }
+        body h1.fw-bold {
+    font-size: 30px;
+}
+
+body h2 {
+    font-size: 26px;
+}
+
+body h3.lead {
+    font-size: 16px;
+}
+
+body p.lead {
+    font-size: 18px;
+}
+a.btn.btn-gold{
+    font-size: 14px;
+}
+h3.card-title{
+    font-size: 18px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg" style="background-color: #fff0e5;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html" style="color: #10162f;">LearnCode Academy</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="home.html" style="color: #10162f;">หน้าแรก</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="courses.html" style="color: #10162f;">คอร์สเรียน</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="tutorials.html" style="color: #10162f;">บทเรียน</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="dashboard.html" style="color: #10162f;">แดชบอร์ด</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="leaderboard.html" style="color: #10162f;">อันดับและรางวัล</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="certificates.html" style="color: #10162f;">ใบรับรอง</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="community.html" style="color: #10162f;">ชุมชน</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="contact.html" style="color: #10162f;">ติดต่อ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="signin.html" style="color: #10162f;">เข้าสู่ระบบ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1 class="fw-bold" style="color: #3a10e5;">🎓 รับใบรับรองของคุณ</h1>
+        <p class="lead">เพิ่มโอกาสในอาชีพของคุณด้วยใบรับรองจากเรา สอบผ่านและแสดงความสามารถของคุณ!</p>
+    </section>
+    <section class="container py-5">
+        <h2 class="text-center mb-4" style="color: #10162f;">ใบรับรองยอดนิยม</h2>
+        <p class="text-center mb-4" style="color: #10162f;" style=>สำรวจโปรแกรมยอดนิยมของเรา เตรียมตัวสำหรับอาชีพที่ต้องการ</p>
+        <div class="certificate-row row">
+            <div class="col-md-4">
+                <div class="certificate-card">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="images/person1.jpg" alt="Person 1" style="width: 250px; height: 250px; object-fit: cover; border-radius: 1px;">
+                        </div>
+                        <div class="card-details">
+                            <h3 class="card-title">ใบรับรองการวิเคราะห์ข้อมูล LearnCode</h3>
+                            <span class="certificate-tag">ทักษะ AI ใหม่</span>
+                            <p style="color: #10162f;"">นำเสนอโดย LearnCode Academy</p>
+                            <p style="color: #10162f;">4 เดือนที่ 12 ชั่วโมงต่อสัปดาห์</p>
+                            <p style="color: #10162f;">เตรียมพร้อมสำหรับงานระดับเริ่มต้นในตำแหน่งนักวิเคราะห์ข้อมูล</p>
+                            <p style="color: #10162f;">สร้างโอกาสสำหรับปริญญา ใบรับรองวิชาชีพ</p>
+                            <a href="#" class="btn btn-gold" style="font-size: 14px;">ไปยังใบรับรอง</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="certificate-card">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="images/person2.jpg" alt="Person 2" style="width: 250px; height: 250px; object-fit: cover; border-radius: 1px;">
+                        </div>
+                        <div class="card-details">
+                            <h3 class="card-title">ใบรับรองการจัดการโปรเจกต์ LearnCode</h3>
+                            <span class="certificate-tag">ทักษะ AI ใหม่</span>
+                            <p style="color: #10162f;">นำเสนอโดย LearnCode Academy</p>
+                            <p style="color: #10162f;">3 เดือนที่ 10 ชั่วโมงต่อสัปดาห์</p>
+                            <p style="color: #10162f;">เตรียมพร้อมสำหรับงานระดับเริ่มต้นในตำแหน่งผู้จัดการโปรเจกต์</p>
+                            <p style="color: #10162f;">สร้างโอกาสสำหรับปริญญา ใบรับรองวิชาชีพ</p>
+                            <a href="#" class="btn btn-gold" style="font-size: 14px;">ไปยังใบรับรอง</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="certificate-card">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="images/person3.png" alt="Person 3" style="width: 250px; height: 250px; object-fit: cover; border-radius: 1px;">
+                        </div>
+                        <div class="card-details">
+                            <h3 class="card-title">ใบรับรองการสนับสนุน IT LearnCode</h3>
+                            <span class="certificate-tag">ทักษะ AI ใหม่</span>
+                            <p style="color: #10162f;">นำเสนอโดย LearnCode Academy</p>
+                            <p style="color: #10162f;">2 เดือนที่ 8 ชั่วโมงต่อสัปดาห์</p>
+                            <p style="color: #10162f;">เตรียมพร้อมสำหรับงานระดับเริ่มต้นในตำแหน่งผู้สนับสนุน IT</p>
+                            <p style="color: #10162f;">สร้างโอกาสสำหรับปริญญา ใบรับรองวิชาชีพ</p>
+                            <a href="#" class="btn btn-gold" style="font-size: 14px;">ไปยังใบรับรอง</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="certificate-card">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="images/person4.png" alt="Person 4" style="width: 250px; height: 250px; object-fit: cover; border-radius: 1px;">
+                        </div>
+                        <div class="card-details">
+                            <h3 class="card-title">ใบรับรองการออกแบบ UX LearnCode</h3>
+                            <span class="certificate-tag">ทักษะ AI ใหม่</span>
+                            <p style="color: #10162f;">นำเสนอโดย LearnCode Academy</p>
+                            <p style="color: #10162f;">4 เดือนที่ 10 ชั่วโมงต่อสัปดาห์</p>
+                            <p style="color: #10162f;">เตรียมพร้อมสำหรับงานระดับเริ่มต้นในตำแหน่งนักออกแบบ UX</p>
+                            <p style="color: #10162f;">สร้างโอกาสสำหรับปริญญา ใบรับรองวิชาชีพ</p>
+                            <a href="#" class="btn btn-gold" style="font-size: 14px;">ไปยังใบรับรอง</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 hideCert">
+                <div class="certificate-card">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="images/person5.png" alt="Person 5" style="width: 250px; height: 250px; object-fit: cover; border-radius: 1px;">
+                        </div>
+                        <div class="card-details">
+                            <h3 class="card-title">ใบรับรองการพัฒนาเว็บ LearnCode</h3>
+                            <span class="certificate-tag">ทักษะ AI ใหม่</span>
+                            <p style="color: #10162f;">นำเสนอโดย LearnCode Academy</p>
+                            <p style="color: #10162f;">3 เดือนที่ 8 ชั่วโมงต่อสัปดาห์</p>
+                            <p style="color: #10162f;">เตรียมพร้อมสำหรับงานระดับเริ่มต้นในตำแหน่งนักพัฒนาเว็บ</p>
+                            <p style="color: #10162f;">สร้างโอกาสสำหรับปริญญา ใบรับรองวิชาชีพ</p>
+                            <a href="#" class="btn btn-gold" style="font-size: 14px;">ไปยังใบรับรอง</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 hideCert">
+                <div class="certificate-card">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="images/person6.jpg" alt="Person 6" style="width: 250px; height: 250px; object-fit: cover; border-radius: 1px;">
+                        </div>
+                        <div class="card-details">
+                            <h3 class="card-title">ใบรับรองปัญญาประดิษฐ์ LearnCode</h3>
+                            <span class="certificate-tag">ทักษะ AI ใหม่</span>
+                            <p style="color: #10162f;">นำเสนอโดย LearnCode Academy</p>
+                            <p style="color: #10162f;">4 เดือนที่ 10 ชั่วโมงต่อสัปดาห์</p>
+                            <p style="color: #10162f;">เตรียมพร้อมสำหรับงานระดับเริ่มต้นในตำแหน่งนักพัฒนา AI</p>
+                            <p style="color: #10162f;">สร้างโอกาสสำหรับปริญญา ใบรับรองวิชาชีพ</p>
+                            <a href="#" class="btn btn-gold" style="font-size: 14px;">ไปยังใบรับรอง</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 hideCert">
+                <div class="certificate-card">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="images/person7.jpg" alt="Person 7" style="width: 250px; height: 250px; object-fit: cover; border-radius: 1px;">
+                        </div>
+                        <div class="card-details">
+                            <h3 class="card-title">ใบรับรองวิทยาศาสตร์ข้อมูล LearnCode</h3>
+                            <span class="certificate-tag">ทักษะ AI ใหม่</span>
+                            <p style="color: #10162f;">นำเสนอโดย LearnCode Academy</p>
+                            <p style="color: #10162f;">4 เดือนที่ 12 ชั่วโมงต่อสัปดาห์</p>
+                            <p style="color: #10162f;">เตรียมพร้อมสำหรับงานระดับเริ่มต้นในตำแหน่งนักวิทยาศาสตร์ข้อมูล</p>
+                            <p style="color: #10162f;">สร้างโอกาสสำหรับปริญญา ใบรับรองวิชาชีพ</p>
+                            <a href="#" class="btn btn-gold" style="font-size: 14px;">ไปยังใบรับรอง</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 hideCert">
+                <div class="certificate-card">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="images/person8.webp" alt="Person 8" style="width: 250px; height: 250px; object-fit: cover; border-radius: 1px;">
+                        </div>
+                        <div class="card-details">
+                            <h3 class="card-title">ใบรับรองการพัฒนาแอปมือถือ LearnCode</h3>
+                            <span class="certificate-tag">ทักษะ AI ใหม่</span>
+                            <p style="color: #10162f;">นำเสนอโดย LearnCode Academy</p>
+                            <p style="color: #10162f;">3 เดือนที่ 10 ชั่วโมงต่อสัปดาห์</p>
+                            <p style="color: #10162f;">เตรียมพร้อมสำหรับงานระดับเริ่มต้นในตำแหน่งนักพัฒนาแอปมือถือ</p>
+                            <p style="color: #10162f;">สร้างโอกาสสำหรับปริญญา ใบรับรองวิชาชีพ</p>
+                            <a href="#" class="btn btn-gold" style="font-size: 14px;">ไปยังใบรับรอง</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <button class="show-all-btn" id="showAllBtn">แสดงเพิ่มเติม</button>
+        </div>
+    </section>
+    <section class="container text-center my-5">
+        <h2 style="color: #10162f;">กระบวนการสอบ</h2>
+        <p class="lead" style="color: #10162f;">คุณต้องสอบผ่านการทดสอบออนไลน์เพื่อรับใบรับรอง</p>
+        <ul class="list-group list-group-flush w-50 mx-auto text-start">
+            <li class="list-group-item" style="color: #10162f;">📝 ลงทะเบียนสอบ</li>
+            <li class="list-group-item" style="color: #10162f;">📚 ศึกษาเนื้อหาที่ให้มา</li>
+            <li class="list-group-item" style="color: #10162f;">💻 ทำข้อสอบออนไลน์</li>
+            <li class="list-group-item" style="color: #10162f;">✅ ได้คะแนนอย่างน้อย 70%</li>
+            <li class="list-group-item" style="color: #10162f;">🎉 รับใบรับรองของคุณ</li>
+        </ul>
+    </section>
+    <section class="container text-center my-5">
+        <h2 style="color: #10162f;">ตัวอย่างใบรับรอง</h2>
+        <img src="images/certificate.png" class="img-fluid shadow-lg rounded" alt="ตัวอย่างใบรับรอง" width="60%">
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 border-bottom border-md-0 border-end">
+                    <h5><b>วิชา</b></h5>
+                    <ul class="list-unstyled">
+                        <li style="color: #10162f;">AI</li>
+                        <li style="color: #10162f;">การคำนวณบนคลาวด์</li>
+                        <li style="color: #10162f;">พื้นฐานโค้ด</li>
+                        <li style="color: #10162f;">วิทยาการคอมพิวเตอร์</li>
+                        <li style="color: #10162f;">ความปลอดภัยทางไซเบอร์</li>
+                        <li style="color: #10162f;">การวิเคราะห์ข้อมูล</li>
+                        <li style="color: #10162f;">วิทยาศาสตร์ข้อมูล</li>
+                        <li style="color: #10162f;">การแสดงผลข้อมูล</li>
+                        <li style="color: #10162f;">เครื่องมือสำหรับนักพัฒนา</li>
+                        <li style="color: #10162f;">DevOps</li>
+                        <li style="color: #10162f;">การพัฒนาเกม</li>
+                        <li style="color: #10162f;">IT</li>
+                        <li style="color: #10162f;">การเรียนรู้ของเครื่อง</li>
+                        <li style="color: #10162f;">คณิตศาสตร์</li>
+                        <li style="color: #10162f;">การพัฒนาแอปมือถือ</li>
+                        <li style="color: #10162f;">การออกแบบเว็บ</li>
+                        <li style="color: #10162f;">การพัฒนาเว็บ</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 border-bottom border-md-0 border-end">
+                    <h5><b>ภาษา</b></h5>
+                    <ul class="list-unstyled">
+                        <li style="color: #10162f;">Bash</li>
+                        <li style="color: #10162f;">C</li>
+                        <li style="color: #10162f;">C++</li>
+                        <li style="color: #10162f;">C#</li>
+                        <li style="color: #10162f;">Go</li>
+                        <li style="color: #10162f;">HTML & CSS</li>
+                        <li style="color: #10162f;">Java</li>
+                        <li style="color: #10162f;">JavaScript</li>
+                        <li style="color: #10162f;">Kotlin</li>
+                        <li style="color: #10162f;">PHP</li>
+                        <li style="color: #10162f;">Python</li>
+                        <li style="color: #10162f;">R</li>
+                        <li style="color: #10162f;">Ruby</li>
+                        <li style="color: #10162f;">SQL</li>
+                        <li style="color: #10162f;">Swift</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 border-bottom border-md-0">
+                    <h5><b>การสร้างอาชีพ</b></h5>
+                    <ul class="list-unstyled">
+                        <li style="color: #10162f;">เส้นทางอาชีพ</li>
+                        <li style="color: #10162f;">ศูนย์อาชีพ</li>
+                        <li style="color: #10162f;">การเตรียมสัมภาษณ์</li>
+                        <li style="color: #10162f;">ใบรับรองวิชาชีพ</li>
+                        <li style="color: #10162f;">เปรียบเทียบกับบูทแคมป์</li>
+                        <li style="color: #10162f;">แคตาล็อกทั้งหมด</li>
+                        <li style="color: #10162f;">เนื้อหาเบต้า</li>
+                        <li style="color: #10162f;">แผนที่เส้นทาง</li>
+                    </ul>
+                    <h5><b>ติดต่อ</b></h5>
+                    <div>
+                        <img src="images/Instagram_icon.png.webp" alt="Instagram" width="30">
+                        <img src="images/2021_Facebook_icon.svg.png" alt="Facebook" width="30">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p style="color: #10162f;">นโยบายความเป็นส่วนตัว | นโยบายคุกกี้ | ไมอนุญาตให้ขายข้อมูลส่วนบุคคลของฉัน | เงื่อนไข</p>
+                <p style="color: #10162f;">© 2024 LearnCode Academy | สงวนลิขสิทธิ์</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            $("#showAllBtn").on("click", function() {
+                var $this = $(this);
+                var linkText = $this.text().trim();
+
+                if (linkText === "แสดงเพิ่มเติม") {
+                    linkText = "แสดงน้อยลง";
+                    $(".hideCert").removeClass("hideCert");
+                } else {
+                    linkText = "แสดงเพิ่มเติม";
+                    $(".col-md-4:gt(3)").addClass("hideCert");
+                }
+
+                $this.text(linkText);
+            });
+        });
+    </script>
+</body>
+</html>
